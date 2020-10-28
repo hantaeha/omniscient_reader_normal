@@ -5,7 +5,7 @@
 <style>
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: serif, Arial, Helvetica, sans-serif;
 }
 
 .navbar {
@@ -16,6 +16,7 @@ body {
   bottom: 0;
   width: 100%;
 }
+
 .navbar a {
   display:inline-block;
   color: #f2f2f2;
@@ -23,6 +24,7 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar a:hover {
@@ -42,13 +44,21 @@ body {
 </style>
 </head>
 <body>
+<!--글자 크기 조정-->
+</br>
+<button id="1" onclick="font_size_step(this.id)" type="button" style="float:right">글씨 크게</button>
+<button id="-1" onclick="font_size_step(this.id)" type="button" style="float:right">글씨 작게</button></br><p>
+<hr width="100%" color="grey" noshade/>
+
+<!--하단 메뉴창-->
 <div class="navbar">
   <a href="4.html">이전화</a>
-  <a href="#nothing">다음화</a>
+  <a href="6.html">다음화</a>
   <a href="main.html">목차</a>
 </div>
 
-<div class="main">
+<!--본문-->
+<div class="main" id="main">
  Episode 1. 유료 서비스 시작 (4)<p></br></br></br></br></br>
 
  헛웃음이 나왔다.</br>
@@ -255,7 +265,7 @@ body {
  내가 움직여야 할 순간을.</br>
  그러니까.</br><p>
 
-콰아아앙-!</br></p>
+ 콰아아앙-!</br></p>
 
  바로 지금.</br><p>
 
@@ -357,7 +367,7 @@ body {
 
  허공에서 풀려난 곤충들이 자유를 향해 있는 힘껏 도약하고 있었다.<p></br></br></br></br></br>
 
-<p id='ISBN'>< Episode 1. 유료 서비스 시작 (4) > 끝</br>
+< Episode 1. 유료 서비스 시작 (4) > 끝</br>
 ©싱숑#vmg</br><p>
 
 ISBN : 979-11-01-71443-9(5)</br>
@@ -365,5 +375,96 @@ ISBN : 979-11-01-71443-9(5)</br>
 
 </p>
 </div>
+
+<script type="text/javascript">
+//초기 글씨 크기 정보 가져오기
+var font_size_index = parseInt(localStorage.getItem("step"));
+switch (font_size_index) {
+case 5:
+  document.getElementById('main').style.fontSize=32+"px";
+  localStorage.setItem("font", "32");
+  localStorage.setItem("step", "5");
+  break;
+case 4:
+  document.getElementById('main').style.fontSize=28+"px";
+  localStorage.setItem("font", "28");
+  localStorage.setItem("step", "4");
+  break;
+case 3:
+  document.getElementById('main').style.fontSize=24+"px";
+  localStorage.setItem("font", "24");
+  localStorage.setItem("step", "3");
+  break;
+case 2:
+  document.getElementById('main').style.fontSize=20+"px";
+  localStorage.setItem("font", "20");
+  localStorage.setItem("step", "2");
+  break;
+case 1:
+  document.getElementById('main').style.fontSize=16+"px";
+  localStorage.setItem("font", "16");
+  localStorage.setItem("step", "1");
+  break;
+default:
+  if(font_size_index >= 5){
+    font_size_index = 5
+    document.getElementById('main').style.fontSize=32+"px";
+    localStorage.setItem("font", "32");
+    localStorage.setItem("step", "5");
+  }else if(font_size_index <= 0){
+    font_size_index = 1
+    document.getElementById('main').style.fontSize=16+"px";
+    localStorage.setItem("font", "16");
+    localStorage.setItem("step", "1");
+  }
+}
+
+//글씨 크기 조정 관련 인덱스 설정
+function font_size_step(value){
+  var num = parseInt(value);
+  font_size_index = font_size_index + num;
+  console.log(font_size_index);
+  switch (font_size_index) {
+  case 5:
+    document.getElementById('main').style.fontSize=32+"px";
+    localStorage.setItem("font", "32");
+    localStorage.setItem("step", "5");
+    break;
+  case 4:
+    document.getElementById('main').style.fontSize=28+"px";
+    localStorage.setItem("font", "28");
+    localStorage.setItem("step", "4");
+    break;
+  case 3:
+    document.getElementById('main').style.fontSize=24+"px";
+    localStorage.setItem("font", "24");
+    localStorage.setItem("step", "3");
+    break;
+  case 2:
+    document.getElementById('main').style.fontSize=20+"px";
+    localStorage.setItem("font", "20");
+    localStorage.setItem("step", "2");
+    break;
+  case 1:
+    document.getElementById('main').style.fontSize=16+"px";
+    localStorage.setItem("font", "16");
+    localStorage.setItem("step", "1");
+    break;
+  default:
+    if(font_size_index >= 5){
+      font_size_index = 5
+      document.getElementById('main').style.fontSize=32+"px";
+      localStorage.setItem("font", "32");
+      localStorage.setItem("step", "5");
+    }else if(font_size_index <= 0){
+      font_size_index = 1
+      document.getElementById('main').style.fontSize=16+"px";
+      localStorage.setItem("font", "16");
+      localStorage.setItem("step", "1");
+    }
+}
+}
+
+</script>
 </body>
 </html>
