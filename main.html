@@ -3,6 +3,10 @@
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 a { text-decoration:none }
 a:hover {
   text-decoration: underline;
@@ -20,6 +24,7 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  font-size: 24px;
 }
 
 tr:nth-child(even) {
@@ -28,12 +33,12 @@ tr:nth-child(even) {
 </style>
 </head>
 <body link='black' vlink='black' alink='red'>
-
+  
 <center><h2>전지적 독자 시점</h2></center>
 
 <table>
   <tr>
-    <th><center>회차</center></th>
+    <th><center>회</center></th>
     <th><center>제목</center></th>
   </tr>
   <tr>
@@ -56,7 +61,12 @@ tr:nth-child(even) {
     <td><center>1</center></td>
     <td><a href="1.html">Prologue. 멸망한 세계에서 살아남는 세 가지 방법</a></td>
   </tr>
+   </span>
 </table>
+<script>
+localStorage.font = '24';
+localStorage.step = '3';
 
+</script>
 </body>
 </html>
